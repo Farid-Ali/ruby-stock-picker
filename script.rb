@@ -7,17 +7,17 @@ def stock_picker(stocks)
 
   stocks.each_with_index do |buy, index|
     
-      while (index < stocks.length)
-        if buy < stocks[index]
-          profit = stocks[index] - buy
-          if profit > final_profit
-            final_profit = profit
-            buy_day = stocks.index(buy)
-            sell_day = index
-          end
+    while (index < stocks.length)
+      if buy < stocks[index]
+        profit = stocks[index] - buy
+        if profit > final_profit
+          final_profit = profit
+          buy_day = stocks.index(buy)
+          sell_day = index
         end
-        index += 1
       end
+      index += 1
+    end
   end
   puts "For a profits of #{stocks[sell_day]}$ - #{stocks[buy_day]}$ = #{stocks[sell_day] - stocks[buy_day]}$"
   p pair = [buy_day,sell_day]
